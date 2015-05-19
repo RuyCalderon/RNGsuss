@@ -6,7 +6,6 @@
 //Assert implementation courtesy of Casey Muratori
 //     http://mollyrocket.com/
 //     https://handmadehero.org/
-
 //requres stdint.h
 #define Assert(X) if(!(X)){*(int *)0 = 0;}
 
@@ -34,6 +33,7 @@ class RandomState
 	uint64_t NextNum();
 	uint64_t NewSeededNum(uint64_t);
 	uint64_t NextSeededNum();
+	void EndSeededNum();
 }
 
 //ChangeScramble, ChangeConsts should all be done only once at the
@@ -44,14 +44,14 @@ class RandomState
 inline void
 RandomState::Reseed(uint64_t NewSeed)
 {
-	State->CurrentSeed = NewSeed;
+	CurrentSeed = NewSeed;
 }
 
 inline void
 RandomState::ChangeScramble(uint64_t NewScramble)
 {
 	//NOTE: THIS WILL CHANGE ALL PREVIOUS SEEDED OUTPUTS
-	State->ScrambleValue = NewScramble;
+	ScrambleValue = NewScramble;
 }
 
 inline void
@@ -122,9 +122,9 @@ RandomState::NextSeededNum()
 }
 
 //zero alternate series to avoid confusion
-inline uint64_t
+inline void
 RandomState::EndSeededNum()
 {
-  TempSeed = 0
+  TempSeed = 0;
 }
 #endif
