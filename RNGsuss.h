@@ -72,7 +72,7 @@ RandomState::ChangeConsts(uint32_t New_a,
 	Assert(New_a < 64 && New_a != 0);
 	Assert(New_b < 64 && New_b != 0);
 	Assert(New_c < 64 && New_c != 0);
-	Assert(New_a != New_b != New_c);
+	Assert((New_a != New_b) && (New_a != New_c) && (New_b != New_c));
 
 	Const_a = New_a;
 	Const_b = New_b;
