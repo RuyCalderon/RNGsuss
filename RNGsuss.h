@@ -24,7 +24,8 @@ class RandomState
 	uint64_t ScrambleValue = 2685821657736338717LL;
 
 	uint64_t TempSeed = 0;
-
+	
+public:
 	void Reseed(uint64_t);
 	void ChangeScramble(uint64_t);
 	void ChangeConsts(uint32_t,
@@ -34,7 +35,7 @@ class RandomState
 	uint64_t NewSeededNum(uint64_t);
 	uint64_t NextSeededNum();
 	void EndSeededNum();
-}
+};
 
 //ChangeScramble, ChangeConsts should all be done only once at the
 //beginning of execution, if at all. Once ChangeScramble or 
