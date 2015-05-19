@@ -6,9 +6,13 @@
 //Assert implementation courtesy of Casey Muratori
 //     http://mollyrocket.com/
 //     https://handmadehero.org/
-//requres stdint.h
+
 #if !defined(Assert)
 #define Assert(X) if(!(X)){*(int *)0 = 0;}
+#endif
+
+#if !defined(stdint)
+#include "stdint.h"
 #endif
 //RNGsuss starts with default seed but it is strongly recommended that any
 //user at the very least reseed before beginning any use.
