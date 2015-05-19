@@ -37,7 +37,7 @@ public:
   			  uint32_t,
   			  uint32_t);
 	uint64_t NextNum();
-	uint64_t NewSeededNum(uint64_t);
+	void NewSeededNum(uint64_t);
 	uint64_t NextSeededNum();
 	void EndSeededNum();
 };
@@ -94,21 +94,11 @@ RandomState::NextNum()
 	return Number;
 }
 
-//first pseudorandom value in an alternate series
-inline uint64_t
+//new alternate series
+inline void
 RandomState::NewSeededNum(uint64_t Seed)
 {
-	uint64_t Number;
 	TempSeed = Seed;
-	
-	Number ^= TempSeed >> Const_a;
-	Number ^= Number << Const_b;
-	Number ^= Number >> Const_c; 
-	Number *= ScrambleValue;
-
-	TempSeed = Number;
-
-	return Number;
 }
 
 //next pseudorandom value in an alternate series
