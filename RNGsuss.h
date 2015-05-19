@@ -14,26 +14,26 @@
 //user at the very least reseed before beginning any use.
 class RandomState
 {
-  // should be changed 
+  	// should be changed 
 	uint64_t CurrentSeed = 1489462064285902538LL;
 
 	uint32_t Const_a = 12;
 	uint32_t Const_b = 25;
 	uint32_t Const_c = 27;
-	
+
 	//could be (but should be) changed
 	uint64_t ScrambleValue = 2685821657736338717LL;
-	
+
 	uint64_t TempSeed = 0;
-	
+
 	void Reseed(uint64_t);
 	void ChangeScramble(uint64_t);
 	void ChangeConsts(uint32_t,
-                  	uint32_t,
-                  	uint32_t);
-  uint64_t NextNum();
-  uint64_t NewSeededNum(uint64_t);
-  uint64_t NextSeededNum();
+  			  uint32_t,
+  			  uint32_t);
+	uint64_t NextNum();
+	uint64_t NewSeededNum(uint64_t);
+	uint64_t NextSeededNum();
 }
 
 //ChangeScramble, ChangeConsts should all be done only once at the
@@ -56,8 +56,8 @@ RandomState::ChangeScramble(uint64_t NewScramble)
 
 inline void
 RandomState::ChangeConsts(uint32_t New_a,
-                					uint32_t New_b,
-                					uint32_t New_c)
+			  uint32_t New_b,
+			  uint32_t New_c)
 {
 	//Note: As with the changed scramble, changing the bitshift constants will alter all seeded outputs
 	//		some constants work better than others
