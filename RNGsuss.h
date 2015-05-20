@@ -25,7 +25,7 @@ class RandomState
 	uint32_t Const_b = 25;
 	uint32_t Const_c = 27;
 
-	//could be (but should be) changed
+	//could be changed
 	uint64_t ScrambleValue = 2685821657736338717LL;
 
 	uint64_t TempSeed = 0;
