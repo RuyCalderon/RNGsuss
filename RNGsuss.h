@@ -47,20 +47,20 @@ public:
 //ChangeConsts is called all seeds from the prior state will no longer be 
 //valid
 
-inline void
+void
 RandomState::Reseed(uint64_t NewSeed)
 {
 	CurrentSeed = NewSeed;
 }
 
-inline void
+void
 RandomState::ChangeScramble(uint64_t NewScramble)
 {
 	//NOTE: THIS WILL CHANGE ALL PREVIOUS SEEDED OUTPUTS
 	ScrambleValue = NewScramble;
 }
 
-inline void
+void
 RandomState::ChangeConsts(uint32_t New_a,
 			  uint32_t New_b,
 			  uint32_t New_c)
@@ -95,7 +95,7 @@ RandomState::NextNum()
 }
 
 //new alternate series
-inline void
+void
 RandomState::NewSeededNum(uint64_t Seed)
 {
 	TempSeed = Seed;
@@ -118,7 +118,7 @@ RandomState::NextSeededNum()
 }
 
 //zero alternate series to avoid confusion
-inline void
+void
 RandomState::EndSeededNum()
 {
   TempSeed = 0;
